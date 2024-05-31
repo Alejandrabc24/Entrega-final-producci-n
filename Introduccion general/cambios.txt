@@ -1,0 +1,9 @@
+Cambios que se realizaron en el documento markdown realizado anteriormente en Haroopad
+
+Para que el documento fuera visisble en Sublime Text se quitaron las siguiente sintaxis no estándar proporcionadas por Haroopad:
+
+- - [x] 
+- ##### ==++texto++==
+- - - - - 
+
+Además hubo que agregar y eliminar algunos espacios que faltaban o sobraban entre los distintos párrafos. 

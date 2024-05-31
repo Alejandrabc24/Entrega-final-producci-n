@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Alejandra Bermúdez Cardona" />
+  <title>Top tips for creating accessible EPUB 3 files</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css"/>
+    <style type="text/css">code{white-space: pre;}</style>
+    <link rel="stylesheet" href="reveal.js/css/theme/black.css"/>
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+  if( window.location.search.match( /print-pdf/gi ) ) {
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = 'reveal.js/css/print/pdf.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  }
+</script>
+  <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title">Top tips for creating accessible EPUB 3 files</h1>
+    <h3 class="author">Alejandra Bermúdez Cardona</h3>
+    <h4 class="date">Marzo de 2022</h3>
+</section>
+
+<section class="slide level2">
+
+<figure>
+<img data-src="web.jpg" alt="Presentaciones web" /><figcaption>Presentaciones web</figcaption>
+</figure>
+</section>
+<section><section id="part-1" class="title-slide slide level1"><h1>Part 1</h1></section><section id="logical-reading-order" class="slide level2">
+<h2>Logical reading order</h2>
+<p><strong>Ensure all text follows a logical reading order</strong>:</p>
+<ul>
+<li>Text must not be presented as images, be reordered by CSS, or require scripting to be accessed.</li>
+<li>Use structural markup to define the natural reading order of the primary narrative and to distinguish secondary material such as footnotes, references, figures, and other auxiliary content.</li>
+</ul>
+</section><section id="separate-presentation-and-content" class="slide level2">
+<h2>Separate presentation and content</h2>
+<p><strong>Visual reading is only one way of accessing content</strong>:</p>
+<ul>
+<li>Do not use visual-only cues such as colored text, font size or positioning as the only clue to the meaning or importance of a word or section.</li>
+<li>Do not use tables or pictures of text to control the appearance of the content.</li>
+<li>The meaning of the content should be the same both with and without any styles or formatting applied.</li>
+</ul>
+</section><section id="provide-complete-navigation" class="slide level2">
+<h2>Provide complete navigation</h2>
+<p><strong>Include a complete table of contents</strong>:</p>
+<ul>
+<li>Include a complete table of contents in the front matter and consider smaller tables of contents at the start of each section.</li>
+<li>This is particularly important for academic, educational, and other complex texts.</li>
+</ul>
+<h3 id="ejemplo-de-tabla">Ejemplo de tabla</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Elemento</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Elemento 1</td>
+<td>Esto es una descripción</td>
+</tr>
+<tr class="even">
+<td>Elemento 2</td>
+<td>Esto es una descripción</td>
+</tr>
+<tr class="odd">
+<td>Elemento 3</td>
+<td>Esto es una descripción</td>
+</tr>
+<tr class="even">
+<td>Elemento 4</td>
+<td>Esto es una descripción</td>
+</tr>
+</tbody>
+</table>
+</section><section id="create-meaningful-structure-wherever-possible" class="slide level2">
+<h2>Create meaningful structure wherever possible</h2>
+<p><strong>Create a structure by using numbered headings</strong>:</p>
+<ul>
+<li>For other tagged structures, specify their content with the epub:type attribute.</li>
+<li>For example, the tag that contains the preface of a book might look like <code>&lt;section epub:type=”preface”&gt;</code>.</li>
+</ul>
+</section></section>
+<section><section id="part-2" class="title-slide slide level1"><h1>Part 2</h1></section><section id="define-the-content-of-each-tag" class="slide level2">
+<h2>Define the content of each tag</h2>
+<p><strong>Include semantic information to describe the content of a tag</strong>:</p>
+<ul>
+<li>A section tag for the table of contents would look like <code>&lt;section epub:type=”toc”&gt;</code> or a list of definitions in a glossary would be tagged with <code>&lt;dl epub:type=”glossary”&gt;</code>.</li>
+<li>Use the EPUB 3 Structural Semantics Vocabulary as defined at <a href="http://idpf.org/epub/vocab/structure/">http://idpf.org/epub/vocab/structure/</a> to identify content.</li>
+</ul>
+</section><section id="use-images-only-for-pictures" class="slide level2">
+<h2>Use images only for pictures</h2>
+<p><strong>Any content embedded in an image is not available to visually impaired readers</strong>:</p>
+<ul>
+<li>If the textual contents of a table or image are required for comprehension of the document, use proper and complete markup for text and tabular data.</li>
+<li>If images of text are unavoidable, provide a description and transcription of the text and use accessible SVG.</li>
+</ul>
+</section><section id="include-page-numbers" class="slide level2">
+<h2>Include page numbers</h2>
+<p><strong>Page numbers are the way many people navigate within a book</strong>:</p>
+<ul>
+<li>For any book with a print equivalent, use the <code>epub:type=”pagebreak”</code> attribute to designate page numbers.</li>
+<li>Include the ISBN of the source of the page numbers in the package metadata for the book.</li>
+</ul>
+</section></section>
+<section><section id="part-3" class="title-slide slide level1"><h1>Part 3</h1></section><section id="provide-alternative-access-to-media-content" class="slide level2">
+<h2>Provide alternative access to media content</h2>
+<p><strong>Make sure the native controls for video and audio content are enabled by default</strong>:</p>
+<ul>
+<li>Provide fallback options such as captions or descriptions for video and transcripts for audio.</li>
+</ul>
+</section><section id="make-interactive-content-accessible" class="slide level2">
+<h2>Make interactive content accessible</h2>
+<p><strong>Interactive content using JavaScript or SVG should be accessible</strong>:</p>
+<ul>
+<li>All custom controls should fully implement ARIA roles, states, and properties, as appropriate.</li>
+</ul>
+</section></section>
+    </div>
+  </div>
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        theme: 'black', // available themes are in /css/theme
+        transition: 'slide', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+//          { src: 'reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
+//          { src: 'reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+]});
+    </script>
+  </body>
+</html>
